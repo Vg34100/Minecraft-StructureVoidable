@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "structurevoidable",
 	"version": "${version}",
-	"name": "StructureVoidable",
+	"name": "Structure Voidable",
 	"description": "Client side mod to make using the block Structure Void easier",
 	"authors": [
 		"VgLevelUp"
@@ -25,7 +25,9 @@
 		"fabric-datagen": [
 			"net.vg.structurevoidable.StructureVoidableDataGenerator"
 		],
-		"modmenu": [ "net.vg.structurevoidable.config.StructureVoidableModMenu" ]
+		"modmenu": [
+          "net.vg.structurevoidable.client.gui.screen.StructureVoidableModMenu"
+        ]
 
 	},
 	"mixins": [

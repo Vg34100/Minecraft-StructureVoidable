@@ -1,4 +1,4 @@
-package net.vg.structurevoidable.config;
+package net.vg.structurevoidable.client.gui.screen.option;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
@@ -7,10 +7,11 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.text.Text;
+import net.vg.structurevoidable.config.ModConfigs;
 
-public class ClientConfigScreen extends GameOptionsScreen {
+public class ClientOptionScreen extends GameOptionsScreen {
 
-    public ClientConfigScreen(Screen parent) {
+    public ClientOptionScreen(Screen parent) {
         super(parent, MinecraftClient.getInstance().options, Text.translatable("config.client.title"));
     }
 

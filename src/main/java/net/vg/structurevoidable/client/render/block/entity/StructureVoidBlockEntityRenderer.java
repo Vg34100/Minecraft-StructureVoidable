@@ -1,4 +1,4 @@
-package net.vg.structurevoidable.client;
+package net.vg.structurevoidable.client.render.block.entity;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
@@ -12,15 +12,22 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.block.Blocks;
 import net.vg.structurevoidable.config.ModConfigs;
+import net.vg.structurevoidable.StructureVoidable;
 
 import java.util.Iterator;
 
 public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<StructureVoidBlockEntity> {
+
+    // Constructor for the renderer
     public StructureVoidBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
+        StructureVoidable.LOGGER.debug("StructureVoidBlockEntityRenderer initialized.");
     }
 
     @Override
     public void render(StructureVoidBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        StructureVoidable.LOGGER.debug("Rendering StructureVoidBlockEntity at position: {}", entity.getPos());
+
+        // Check if the outline is visible as per the configuration
         if (ModConfigs.OUTLINE_VISIBLE) {
             renderInvisibleBlocks(entity, vertexConsumers, matrices);
         }
@@ -28,8 +35,8 @@ public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<Str
 
     private void renderInvisibleBlocks(StructureVoidBlockEntity entity, VertexConsumerProvider vertexConsumers, MatrixStack matrices) {
         BlockView blockView = entity.getWorld();
-        // Lines
-         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getLines());
+        // Get the vertex consumer for drawing lines
+        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getLines());
 
         BlockPos blockPos = entity.getPos();
 
@@ -41,7 +48,7 @@ public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<Str
                 BlockPos blockPos3 = var8.next();
                 if (blockView.getBlockState(blockPos3).isOf(Blocks.STRUCTURE_VOID)) {
                     float f = 0.0F;
-                    double d,e,g,h,i,j = 0;
+                    double d, e, g, h, i, j;
                     if (ModConfigs.FULL_BLOCK_RENDER) {
                         // Full block Structure Void render
                         d = (double) ((float) (blockPos3.getX() - blockPos.getX()) + 0F - f);
@@ -82,8 +89,11 @@ public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<Str
                             blue = 0.75F;
                             alpha = 1.0F;
                             break;
-
                     }
+
+                    // Log the color and position details
+                    StructureVoidable.LOGGER.debug("Rendering outline at {}: Color - R:{}, G:{}, B:{}, A:{}", blockPos3, red, green, blue, alpha);
+
                     WorldRenderer.drawBox(matrices, vertexConsumer, d, e, g, h, i, j, red, green, blue, alpha);
                 }
             }

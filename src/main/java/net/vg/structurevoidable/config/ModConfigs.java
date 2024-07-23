@@ -8,15 +8,11 @@ import java.util.Arrays;
 public class ModConfigs {
     public static SimpleConfig CONFIG;
     private static ModConfigProvider configs;
-
     public static boolean BARRIER_BEHAVIOR;
     public static boolean OUTLINE_VISIBLE;
     public static boolean FULL_BLOCK_OUTLINE;
     public static boolean FULL_BLOCK_RENDER;
     public static String OUTLINE_COLOR;
-
-
-
 
     public static String[] necessaryConfigs = {
         "config.barrier.behavior", // If the structure void should have the same behavior as the barrier for rendering
@@ -27,6 +23,7 @@ public class ModConfigs {
     };
 
     public static void registerConfigs() {
+        StructureVoidable.LOGGER.info("Registering mod configurations.");
         configs = new ModConfigProvider();
         createConfigs();
 
@@ -36,6 +33,7 @@ public class ModConfigs {
     }
 
     private static void createConfigs() {
+        StructureVoidable.LOGGER.debug("Creating default configuration values.");
         configs.addKeyValuePair(new Pair<>("config.barrier.behavior", true), Arrays.asList(
                 "If the structure void should have the same behavior as the barrier for rendering",
                 "Default: True"
@@ -61,32 +59,26 @@ public class ModConfigs {
     }
 
     private static void assignConfigs() {
-        // Client Settings
-        // Boolean
+        StructureVoidable.LOGGER.info("Assigning configuration values.");
+        // Assign configuration values to fields
         BARRIER_BEHAVIOR = CONFIG.getOrDefault("config.barrier.behavior", true);
         OUTLINE_VISIBLE = CONFIG.getOrDefault("config.outline.always.visible", false);
         FULL_BLOCK_OUTLINE = CONFIG.getOrDefault("config.full.block.outline", true);
         FULL_BLOCK_RENDER = CONFIG.getOrDefault("config.full.block.render", false);
-
-        // Integer or Double
-
-        // Double
-
-        // String
         OUTLINE_COLOR = CONFIG.getOrDefault("config.outline.color", "default");
 
-        System.out.println("All " + configs.getConfigsList().size() + " have been set properly");
+        StructureVoidable.LOGGER.info("All {} configurations have been set properly.", configs.getConfigsList().size());
     }
 
     public static void saveConfigs() {
+        StructureVoidable.LOGGER.info("Saving current configuration values.");
         CONFIG.set("config.barrier.behavior", BARRIER_BEHAVIOR);
         CONFIG.set("config.outline.always.visible", OUTLINE_VISIBLE);
         CONFIG.set("config.full.block.outline", FULL_BLOCK_OUTLINE);
         CONFIG.set("config.full.block.render", FULL_BLOCK_RENDER);
         CONFIG.set("config.outline.color", OUTLINE_COLOR);
 
-
-
         CONFIG.save();
+        StructureVoidable.LOGGER.info("Configuration values saved successfully.");
     }
 }

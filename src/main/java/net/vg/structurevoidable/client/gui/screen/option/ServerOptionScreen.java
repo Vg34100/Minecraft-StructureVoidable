@@ -1,15 +1,15 @@
-package net.vg.structurevoidable.config;
+package net.vg.structurevoidable.client.gui.screen.option;
 
-import com.mojang.serialization.Codec;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.GameOptionsScreen;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.text.Text;
+import net.vg.structurevoidable.config.ModConfigs;
 
-public class ServerConfigScreen extends GameOptionsScreen {
+public class ServerOptionScreen extends GameOptionsScreen {
 
-    public ServerConfigScreen(Screen parent) {
+    public ServerOptionScreen(Screen parent) {
         super(parent, MinecraftClient.getInstance().options, Text.translatable("config.server.title"));
     }
 
