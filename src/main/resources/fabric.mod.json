@@ -9,8 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/structurevoidable",
-		"sources": "https://github.com/Vg34100/Minecraft-Structure-Voidable",
-		"issues": "https://github.com/Vg34100/Minecraft-Structure-Voidable/issues"
+		"sources": "https://github.com/Vg34100/Minecraft-StructureVoidable",
+		"issues": "https://github.com/Vg34100/Minecraft-StructureVoidable/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/structurevoidable/icon.png",
