@@ -12,7 +12,7 @@
 		"sources": "https://github.com/Vg34100/Minecraft-StructureVoidable",
 		"issues": "https://github.com/Vg34100/Minecraft-StructureVoidable/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/structurevoidable/icon.png",
 	"environment": "*",
 	"entrypoints": {
