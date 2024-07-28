@@ -40,6 +40,7 @@ public class ModConfigs {
         ));
         configs.addKeyValuePair(new Pair<>("config.outline.always.visible", false), Arrays.asList(
                 "If the outline version of the structure void should always be visible",
+                "Caution: May cause lag",
                 "Default: False"
         ));
         configs.addKeyValuePair(new Pair<>("config.full.block.outline", true), Arrays.asList(
