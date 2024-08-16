@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/Vg34100/Minecraft-StructureVoidable/issues"
+license = "MIT"
+
+[[mods]]
+modId = "structurevoidable"
+version = "${version}"
+displayName = "Structure Voidable"
+authors = "VgLevelUp"
+description = '''
+Client side mod to make using the block Structure Void easier
+'''
+logoFile = "assets/structurevoidable/icon.png"
+
+[[dependencies.structurevoidable]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.structurevoidable]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.structurevoidable]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "structurevoidable.mixins.json"
