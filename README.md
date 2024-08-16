@@ -8,7 +8,7 @@ The **Structure Voidable** Mod for Minecraft helps the Minecraft content develop
 
 Works in Minecraft 1.21
 
-*Requires FabricAPI*
+*Requires FabricAPI and ArchitecturyAPI*
 
 Should work as Client-side Only*
 
@@ -34,7 +34,7 @@ Should work as Client-side Only*
 4. Start Minecraft using the Fabric profile.
 
 ## Dependencies
-- Required: FabricAPI
+- Required: ArchitecturyAPI
 - Recommended: ModMenu
 
 ---------------	
@@ -44,7 +44,7 @@ Should work as Client-side Only*
 ### Mod Configuration File
 
 - Located in the config folder, the configuration file allows you to customize various aspects of the mod, such as outline color and outline size.
-- ModMenu allows changing of the config while in game.
+- ModMenu allows changing of the config while in the game.
 
 ---------------	
 
@@ -52,14 +52,16 @@ Should work as Client-side Only*
 
 ### Structure Void Placement
 
-- **On initial install**: All Structure Void blocks render in the same method as Barrier blocks.
-- **On initial install**: All Structure Void blocks will have the breakable and placeable outline be increased to a full block.
+- **On initial install**: All Structure Void blocks rendered in the same method as Barrier blocks.
+- **On initial install**: All Structure Void blocks will have the breakable and placeable outline increased to a full block.
 - **In the config**: If Voids Everywhere and Full Block Render is turned on, newly placed Structure Void blocks will update with the new style, as well as any Structure Void blocks that get a block update.
 
 ---------------	
 
 ## Contributions
 
-Contributions are welcome! If you have ideas for new features, optimizations, or bug fixes, please feel free to open an issue or submit a pull request on the mod's GitHub repository.
+Contributions are welcome!
+If you have ideas for new features, optimizations, or bug fixes,
+please feel free to open an issue or submit a pull request in the mod's GitHub repository.
 
-*I'm not actually sure if it 100% works client-side only so don't quote me, it still worked when I joined a server that didn't have it.
+*I'm not sure if it 100% works client-side only so don't quote me, it still worked when I joined a server that didn't have it.
