@@ -2,7 +2,6 @@ package net.vg.structurevoidable.config;
 
 import com.mojang.datafixers.util.Pair;
 import net.vg.structurevoidable.Constants;
-import net.vg.structurevoidable.StructureVoidable;
 
 import java.util.Arrays;
 

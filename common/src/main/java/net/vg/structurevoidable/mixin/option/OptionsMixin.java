@@ -3,8 +3,6 @@ package net.vg.structurevoidable.mixin.option;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
-import net.vg.structurevoidable.Constants;
-import net.vg.structurevoidable.StructureVoidable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;

@@ -92,16 +92,14 @@ public class ClientOptionScreen extends OptionsSubScreen {
                 // Add more options here as needed
         };
 
+        assert this.list != null;
         this.list.addSmall(options);
     }
 
     @Override
     public void onClose() {
         ModConfigs.saveConfigs();
+        assert this.minecraft != null;
         this.minecraft.setScreen(this.lastScreen);
-    }
-
-    private static Component getGenericValueText(Component prefix, Component value) {
-        return Component.translatable("options.generic_value", prefix, value);
     }
 }

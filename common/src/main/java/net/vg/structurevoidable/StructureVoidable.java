@@ -1,12 +1,5 @@
 package net.vg.structurevoidable;
 
-import dev.architectury.platform.Mod;
-import dev.architectury.platform.Platform;
-import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StructureVoidBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.vg.structurevoidable.block.entity.ModBlockEntities;
 import net.vg.structurevoidable.config.ModConfigs;
 import net.vg.structurevoidable.util.ModKeyMaps;

@@ -29,12 +29,14 @@ public class MainOptionScreen extends OptionsSubScreen{
 
         Button serverSettingsButton = Button.builder(SERVER_SETTINGS_TEXT, button -> {
             Constants.LOGGER.debug("Server settings button clicked");
+            assert this.minecraft != null;
             this.minecraft.setScreen(new ServerOptionScreen(this));
         }).width(150).build();
         clickableWidgets.add(serverSettingsButton);
 
         Button clientSettingsButton = Button.builder(CLIENT_SETTINGS_TEXT, button -> {
             Constants.LOGGER.debug("Client settings button clicked");
+            assert this.minecraft != null;
             this.minecraft.setScreen(new ClientOptionScreen(this));
         }).width(150).build();
         clickableWidgets.add(clientSettingsButton);
@@ -43,9 +45,4 @@ public class MainOptionScreen extends OptionsSubScreen{
         this.list.addSmall(clickableWidgets);
         Constants.LOGGER.debug("Added {} clickable widgets", clickableWidgets.size());
     }
-
-    private static Component getGenericValueText(Component prefix, Component value) {
-        return Component.translatable("options.generic_value", prefix, value);
-    }
-
 }

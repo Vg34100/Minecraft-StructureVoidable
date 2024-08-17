@@ -29,9 +29,9 @@ public class ClientLevelMixin {
         if (ModConfigs.BARRIER_BEHAVIOR) {
             Constants.LOGGER.debug("Injecting into getBlockParticle method");
 
+            assert this.minecraft.gameMode != null;
             if (this.minecraft.gameMode.getPlayerMode() == GameType.CREATIVE) {
-//            BlockItem blockItem = (BlockItem)item;
-//            return blockItem.getBlock();
+                assert this.minecraft.player != null;
                 ItemStack itemStack = this.minecraft.player.getMainHandItem();
                 Item item = itemStack.getItem();
 

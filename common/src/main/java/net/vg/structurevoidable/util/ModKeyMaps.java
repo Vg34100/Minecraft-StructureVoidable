@@ -14,8 +14,6 @@ public class ModKeyMaps {
             "category.structurevoidable" // The category translation key used to categorize in the Controls screen
     );
 
-
-
     public static void register() {
         KeyMappingRegistry.register(CUSTOM_KEYMAPPING);
         ClientTickEvent.CLIENT_POST.register(minecraft -> {

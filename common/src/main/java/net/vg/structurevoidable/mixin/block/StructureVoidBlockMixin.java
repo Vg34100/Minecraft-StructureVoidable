@@ -8,7 +8,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.BlockGetter;
 import net.vg.structurevoidable.Constants;
-import net.vg.structurevoidable.StructureVoidable;
 import net.vg.structurevoidable.block.entity.StructureVoidBlockEntity;
 import net.vg.structurevoidable.config.ModConfigs;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,12 +1,8 @@
 package net.vg.structurevoidable;
 
 import dev.architectury.platform.Platform;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Optional;
 
 public class Constants {
     public static final String MOD_ID = "structurevoidable";

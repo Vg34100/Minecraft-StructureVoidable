@@ -24,18 +24,14 @@ public class ServerOptionScreen extends OptionsSubScreen {
                 // Add more options here as needed
         };
 
-        for (OptionInstance<?> option : options) {
-            this.list.addBig(option);
-        }
+        assert this.list != null;
+        this.list.addSmall(options);
     }
 
     @Override
     public void onClose() {
         ModConfigs.saveConfigs();
+        assert this.minecraft != null;
         this.minecraft.setScreen(this.lastScreen);
-    }
-
-    private static Component getGenericValueText(Component prefix, Component value) {
-        return Component.translatable("options.generic_value", prefix, value);
     }
 }

@@ -8,7 +8,7 @@ The **Structure Voidable** Mod for Minecraft helps the Minecraft content develop
 
 Works in Minecraft 1.21
 
-*Requires FabricAPI and ArchitecturyAPI*
+*Uses ArchitecturyAPI*
 
 Should work as Client-side Only*
 
