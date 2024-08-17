@@ -14,7 +14,6 @@ public final class StructureVoidable {
         Constants.LOGGER.info("Registering configurations...");
         ModConfigs.registerConfigs();
 
-
         // Register block entities
         Constants.LOGGER.info("Registering block entities...");
         ModBlockEntities.register();
@@ -22,7 +21,5 @@ public final class StructureVoidable {
         // Key Maps
         Constants.LOGGER.info("Registering keybindings...");
         ModKeyMaps.register();
-
-
     }
 }
