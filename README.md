@@ -19,6 +19,7 @@ Should work as Client-side Only*
 ### Structure Void Behavior
 
 - **Barrier Behavior**: Display the Structure Void block as an item in the world similar to the visual style of Barrier and Light blocks.
+![Always Visible Example](https://cdn.modrinth.com/data/3URi5PhQ/images/f3fbb56a9ea1dbbca64035f21b337162c2b0b6bd.png)
 - **Voids Everywhere**: A setting to enable the view of the standard Structure Void render regardless of placement within a Structure Block Field
 - **Full Block Outline**: The breakable and placeable outline of the Structure Void can be increased to be the size of a full block.
 - **Full Block Render**: The standard Structure Void rendered box outline can be enlarged to be a full block.
@@ -65,3 +66,4 @@ If you have ideas for new features, optimizations, or bug fixes,
 please feel free to open an issue or submit a pull request in the mod's GitHub repository.
 
 *I'm not sure if it 100% works client-side only so don't quote me, it still worked when I joined a server that didn't have it.
+It seems like if the server has it, you have to have it too.
