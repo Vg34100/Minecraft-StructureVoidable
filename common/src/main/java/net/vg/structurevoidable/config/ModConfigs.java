@@ -10,7 +10,12 @@ public class ModConfigs {
     private static ModConfigProvider configs;
     public static boolean BARRIER_BEHAVIOR;
     public static boolean OUTLINE_VISIBLE;
-    public static boolean FULL_BLOCK_OUTLINE;
+
+    public static boolean FULL_BLOCK_OUTLINE; // Getting replaced
+    public static String OUTLINE_SIZE;
+
+
+
     public static boolean FULL_BLOCK_RENDER;
     public static String OUTLINE_COLOR;
 
@@ -21,6 +26,9 @@ public class ModConfigs {
         "config.barrier.behavior", // If the structure void should have the same behavior as the barrier for rendering
         "config.outline.always.visible", // If the outline version of the structure void should always be visible
         "config.full.block.outline", // If the breakable and placeable outline should be a full block
+        "config.outline.size", // The size of the breakable and placeable outline.
+
+
         "config.full.block.render", // If the visible outline render should be a full block
         "config.outline.color", // The color of the outline render
 
@@ -49,10 +57,21 @@ public class ModConfigs {
                 "Caution: May cause lag",
                 "Default: False"
         ));
-        configs.addKeyValuePair(new Pair<>("config.full.block.outline", true), Arrays.asList(
+        configs.addKeyValuePair(new Pair<>("config.full.block.outline", true), Arrays.asList( // Old
                 "If the breakable and placeable outline should be a full block",
-                "Default: True"
+                "Default: True",
+                "Old"
         ));
+        configs.addKeyValuePair(new Pair<>("config.outline.size", "small"), Arrays.asList(
+                "The size to make the breakable and placeable outline",
+                "Options include: none, small, medium, and large",
+                "Default: small"
+        ));
+
+
+
+
+
         configs.addKeyValuePair(new Pair<>("config.full.block.render", false), Arrays.asList(
                 "If the visible outline render should be a full block",
                 "Default: False"
@@ -63,7 +82,7 @@ public class ModConfigs {
                 "Default: default"
         ));
 
-        configs.addKeyValuePair(new Pair<>("config.display.block", false), Arrays.asList(
+        configs.addKeyValuePair(new Pair<>("config.display.block", "stone"), Arrays.asList(
                 "If the structure void block should display as a Minecraft block",
                 "Options include: stone, deepslate, dirt, netherrack, and endstone",
                 "Default: stone"
@@ -76,7 +95,11 @@ public class ModConfigs {
         // Assign configuration values to fields
         BARRIER_BEHAVIOR = CONFIG.getOrDefault("config.barrier.behavior", true);
         OUTLINE_VISIBLE = CONFIG.getOrDefault("config.outline.always.visible", false);
-        FULL_BLOCK_OUTLINE = CONFIG.getOrDefault("config.full.block.outline", true);
+        FULL_BLOCK_OUTLINE = CONFIG.getOrDefault("config.full.block.outline", true); // Old
+        OUTLINE_SIZE = CONFIG.getOrDefault("config.outline.size", "small");
+
+
+
         FULL_BLOCK_RENDER = CONFIG.getOrDefault("config.full.block.render", false);
         OUTLINE_COLOR = CONFIG.getOrDefault("config.outline.color", "default");
 
@@ -90,7 +113,12 @@ public class ModConfigs {
         Constants.LOGGER.info("Saving current configuration values.");
         CONFIG.set("config.barrier.behavior", BARRIER_BEHAVIOR);
         CONFIG.set("config.outline.always.visible", OUTLINE_VISIBLE);
-        CONFIG.set("config.full.block.outline", FULL_BLOCK_OUTLINE);
+        CONFIG.set("config.full.block.outline", FULL_BLOCK_OUTLINE); // Old
+        CONFIG.set("config.outline.size", OUTLINE_SIZE);
+
+
+
+
         CONFIG.set("config.full.block.render", FULL_BLOCK_RENDER);
         CONFIG.set("config.outline.color", OUTLINE_COLOR);
 

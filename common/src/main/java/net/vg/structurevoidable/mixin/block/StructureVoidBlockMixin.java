@@ -30,10 +30,34 @@ public abstract class StructureVoidBlockMixin extends Block implements EntityBlo
 
     @Inject(method = "getShape", at = @At("HEAD"), cancellable = true)
     public void getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
-        if (ModConfigs.FULL_BLOCK_OUTLINE) {
-            Constants.LOGGER.debug("Setting outline shape to full cube for StructureVoidBlock");
-            VoxelShape fullCube = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-            cir.setReturnValue(fullCube);
+//        if (ModConfigs.FULL_BLOCK_OUTLINE) {
+//            Constants.LOGGER.debug("Setting outline shape to full cube for StructureVoidBlock");
+//            VoxelShape fullCube = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
+//            cir.setReturnValue(fullCube);
+//        }
+        if (ModConfigs.OUTLINE_SIZE == null) {
+            return;
+        }
+
+        Constants.LOGGER.debug("Setting outline shape to {} for StructureVoidBlock", ModConfigs.OUTLINE_SIZE);
+        VoxelShape fullCube = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
+        switch (ModConfigs.OUTLINE_SIZE) {
+            case "large":
+                fullCube = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
+                cir.setReturnValue(fullCube);
+                break;
+            case "medium":
+                fullCube = Block.box(3.0, 3.0, 3.0, 13.0, 13.0, 13.0);  // Centered 10x10x10 box
+                cir.setReturnValue(fullCube);
+                break;
+            case "none":
+                fullCube = Block.box(0.0, 0.0, 0.0, 8.0, 0.0, 0.0);
+                cir.setReturnValue(fullCube);
+                break;
+            default:
+                super.getShape(state, level, pos, context);
+                break;
+
         }
     }
 

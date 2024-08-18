@@ -37,12 +37,25 @@ public class ClientOptionScreen extends OptionsSubScreen {
                 value -> ModConfigs.OUTLINE_VISIBLE = value
         );
 
-        OptionInstance<Boolean> fullBlockOutline = OptionInstance.createBoolean(
+        OptionInstance<Boolean> fullBlockOutline = OptionInstance.createBoolean( // old
                 "config.full.block.outline",
                 OptionInstance.cachedConstantTooltip(Component.translatable("tooltip.full.block.outline")),
                 ModConfigs.FULL_BLOCK_OUTLINE,
                 value -> ModConfigs.FULL_BLOCK_OUTLINE = value
         );
+
+        OptionInstance<String> outlineSize = new OptionInstance<>(
+                "config.outline.size",
+                OptionInstance.cachedConstantTooltip(Component.translatable("tooltip.outline.size")),
+                (optionText, value) -> Component.translatable("outline.size." + value),
+                new OptionInstance.Enum<>(
+                        ImmutableList.of("none", "small", "medium", "large"),
+                        Codec.STRING
+                ),
+                ModConfigs.OUTLINE_SIZE,
+                value -> ModConfigs.OUTLINE_SIZE = value
+        );
+
 
         OptionInstance<Boolean> fullBlockRender = OptionInstance.createBoolean(
                 "config.full.block.render",
@@ -81,10 +94,16 @@ public class ClientOptionScreen extends OptionsSubScreen {
                 ModConfigs.BLOCK_TYPE,
                 value -> ModConfigs.BLOCK_TYPE = value
         );
+
+
+
         OptionInstance<?>[] options = new OptionInstance[]{
                 barrierBehavior,
                 outlineVisible,
-                fullBlockOutline,
+//                fullBlockOutline, //old
+
+                outlineSize,
+
                 fullBlockRender,
                 outlineColorOption,
                 displayBlock,

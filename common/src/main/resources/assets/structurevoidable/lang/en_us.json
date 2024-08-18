@@ -7,6 +7,9 @@
   "config.barrier.behavior": "Barrier Behavior",
   "config.outline.always.visible": "Outline Always Visible",
   "config.full.block.outline": "Full Block Outline",
+  "config.outline.size": "Outline Size",
+
+
   "config.full.block.render": "Full Block Render",
   "config.outline.color": "Outline Color",
 
@@ -17,11 +20,13 @@
   "tooltip.barrier.behavior": "If the structure void should have the same behavior as the barrier for rendering. (Default: True)",
   "tooltip.outline.always.visible": "If the outline version of the structure void should always be visible. Caution! May cause lag. (Default: False)",
   "tooltip.full.block.outline": "If the breakable and placeable outline should be a full block. (Default: True)",
+  "tooltip.outline.size": "The size of the breakable and placeable outline. (Default: 'small')",
+
   "tooltip.full.block.render": "If the visible outline render should be a full block. Only works with the always visible option on. (Default: False)",
   "tooltip.outline.color": "The color of the outline render. (Default:'default')",
 
   "tooltip.display.block": "If the structure void should display as some minecraft mod. Always visible must be on. (Default: False)",
-  "tooltip.block.type": "The type of block to display as if Display Block option is on. (Default: Stone)",
+  "tooltip.block.type": "The type of block to display as. Works when Display Block option is on. (Default: Stone)",
 
 
   "outline.color.default": "Default",
@@ -34,6 +39,13 @@
   "block.type.netherrack": "Netherrack",
   "block.type.endstone": "End Stone",
 
+  "outline.size.none": "None",
+  "outline.size.small": "Small",
+  "outline.size.medium": "Medium",
+  "outline.size.large": "Large",
+
   "key.toggle_outline_visible": "Toggle Structure Void Outline",
+  "key.cycle_outline_size": "Cycle Outline Size",
+  "key.cycle_block_type": "Cycle Block Type",
   "category.structurevoidable": "Structure Voidable"
 }

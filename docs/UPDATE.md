@@ -4,6 +4,18 @@ Minecraft-Structure-Voidable
 
 ## Version 1.0.1
 
+### Cycle Block Type
+- Keybinding to easily cycle between visible block types
+- Also cycles between being enabled oor disabled
+
+### Cycle Outline Size
+- Removed the Full Block Outline option and replaces with a list
+- Has options of none, small, medium, and large
+- Keybinding to easily cycle between outline sizes
+- Allows for NO breakable and placeable outline
+
+## Version 1.0.1
+
 ### Always Visible Fix
 
 - Now only renders the structure voids that are near the player
