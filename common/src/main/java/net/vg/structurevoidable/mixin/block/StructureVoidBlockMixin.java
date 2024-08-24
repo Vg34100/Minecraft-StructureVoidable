@@ -1,12 +1,15 @@
 package net.vg.structurevoidable.mixin.block;
 
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.StructureVoidBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.level.BlockGetter;
 import net.vg.structurevoidable.Constants;
 import net.vg.structurevoidable.block.entity.StructureVoidBlockEntity;
 import net.vg.structurevoidable.config.ModConfigs;
@@ -30,11 +33,6 @@ public abstract class StructureVoidBlockMixin extends Block implements EntityBlo
 
     @Inject(method = "getShape", at = @At("HEAD"), cancellable = true)
     public void getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context, CallbackInfoReturnable<VoxelShape> cir) {
-//        if (ModConfigs.FULL_BLOCK_OUTLINE) {
-//            Constants.LOGGER.debug("Setting outline shape to full cube for StructureVoidBlock");
-//            VoxelShape fullCube = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-//            cir.setReturnValue(fullCube);
-//        }
         if (ModConfigs.OUTLINE_SIZE == null) {
             return;
         }

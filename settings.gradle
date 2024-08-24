@@ -11,4 +11,4 @@ rootProject.name = 'structurevoidable'
 
 include 'common'
 include 'fabric'
-include 'neoforge'
+include 'forge'

@@ -33,6 +33,7 @@
   "outline.color.void": "Void",
   "outline.color.barrier": "Barrier",
 
+  "block.type.none": "None",
   "block.type.stone": "Stone",
   "block.type.deepslate": "Deepslate",
   "block.type.dirt": "Dirt",

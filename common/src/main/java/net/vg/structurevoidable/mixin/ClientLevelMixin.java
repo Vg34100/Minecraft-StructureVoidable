@@ -1,6 +1,5 @@
 package net.vg.structurevoidable.mixin;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.item.BlockItem;
@@ -10,7 +9,6 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.vg.structurevoidable.Constants;
-import net.vg.structurevoidable.StructureVoidable;
 import net.vg.structurevoidable.config.ModConfigs;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
