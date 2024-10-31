@@ -3,6 +3,7 @@ package net.vg.structurevoidable.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.ShapeRenderer;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -106,7 +107,8 @@ public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<Str
                     }
 
                     Constants.LOGGER.debug("Rendering outline at {}: Color - R:{}, G:{}, B:{}, A:{}", blockPos3, red, green, blue, alpha);
-                    LevelRenderer.renderLineBox(poseStack, vertexConsumer, d, e, g, h, i, j, red, green, blue, alpha);
+//                    LevelRenderer.renderLineBox(poseStack, vertexConsumer, d, e, g, h, i, j, red, green, blue, alpha);
+                    ShapeRenderer.renderLineBox(poseStack, vertexConsumer, d, e, g, h, i, j, red, green, blue, alpha);
                 }
             }
         }

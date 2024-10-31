@@ -8,6 +8,7 @@
     "option.OptionsMixin"
   ],
   "mixins": [
+    "block.BlockEntityTypeMixin",
     "block.StructureVoidBlockMixin"
   ],
   "injectors": {

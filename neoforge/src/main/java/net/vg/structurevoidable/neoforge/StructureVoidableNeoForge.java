@@ -29,10 +29,9 @@ public final class StructureVoidableNeoForge {
 
         ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () -> new IConfigScreenFactory() {
             @Override
-            public @NotNull Screen createScreen(@NotNull Minecraft arg, @NotNull Screen arg2) {
-                return new MainOptionScreen(arg2);
+            public Screen createScreen(ModContainer modContainer, Screen arg) {
+                return new MainOptionScreen(arg);
             }
-
         });
 
     }
