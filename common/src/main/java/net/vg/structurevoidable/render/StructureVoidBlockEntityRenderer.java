@@ -23,9 +23,11 @@ public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<Str
     public StructureVoidBlockEntityRenderer() {
         Constants.LOGGER.debug("StructureVoidBlockEntityRenderer initialized.");
     }
-
     @Override
-    public void render(StructureVoidBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, Vec3 vec3) {
+    public void render(StructureVoidBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+//    }
+//    @Override
+//    public void render(StructureVoidBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, Vec3 vec3) {
         Constants.LOGGER.debug("Rendering StructureVoidBlockEntity at position: {}", blockEntity.getBlockPos());
         BlockPos blockPos = blockEntity.getBlockPos();
         Vec3 cameraPos = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
@@ -112,6 +114,4 @@ public class StructureVoidBlockEntityRenderer implements BlockEntityRenderer<Str
             }
         }
     }
-
-
 }
