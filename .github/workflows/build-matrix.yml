@@ -1,0 +1,77 @@
+name: Build Matrix Test
+
+on:
+  push:
+    branches: [master, 'auto/mc-*']
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false  # Don't cancel other jobs if one fails
+      matrix:
+        include:
+          - name: "MC 1.21.5 (Default)"
+            mcVersion: ""
+            branch: "master"
+          - name: "MC 1.21.4"
+            mcVersion: "1214"
+            branch: "auto/mc-1.21.4"
+          - name: "MC 1.21.3"
+            mcVersion: "1213"
+            branch: "auto/mc-1.21.3"
+    
+    name: ${{ matrix.name }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      # Try to checkout the specific branch if it exists
+      - name: Checkout target branch
+        run: |
+          if [ "${{ matrix.branch }}" != "master" ]; then
+            if git ls-remote --heads origin ${{ matrix.branch }} | grep -q ${{ matrix.branch }}; then
+              git checkout ${{ matrix.branch }}
+              echo "Checked out existing branch: ${{ matrix.branch }}"
+            else
+              echo "Branch ${{ matrix.branch }} does not exist, staying on current branch"
+            fi
+          fi
+        
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+        
+      - name: Build with Gradle
+        run: |
+          if [ -n "${{ matrix.mcVersion }}" ]; then
+            echo "Building with MC version parameter: ${{ matrix.mcVersion }}"
+            ./gradlew build -PmcVersion=${{ matrix.mcVersion }} --no-daemon --stacktrace
+          else
+            echo "Building with default MC version"
+            ./gradlew build --no-daemon --stacktrace
+          fi
+          
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: build-${{ matrix.name }}-${{ github.sha }}
+          path: |
+            fabric/build/libs/*.jar
+            neoforge/build/libs/*.jar
+          retention-days: 7
