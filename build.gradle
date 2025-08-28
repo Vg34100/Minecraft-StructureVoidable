@@ -4,6 +4,21 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
 
+// Load version-specific properties if mcVersion parameter is provided
+if (project.hasProperty('mcVersion')) {
+    def versionFile = file("gradle/versions/mc-${project.mcVersion}.properties")
+    if (versionFile.exists()) {
+        def versionProps = new Properties()
+        versionFile.withInputStream { versionProps.load(it) }
+        versionProps.each { key, value ->
+            project.ext[key] = value
+        }
+        println "Loaded version configuration: MC ${project.ext.minecraft_version}"
+    } else {
+        throw new GradleException("Version file not found: ${versionFile.path}")
+    }
+}
+
 architectury {
     minecraft = project.minecraft_version
 }
