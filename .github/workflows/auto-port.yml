@@ -74,10 +74,18 @@ jobs:
           
       - name: Update fabric.mod.json for MC ${{ matrix.minecraft_version }}
         run: |
-          # Update the Minecraft version requirement in fabric.mod.json
+          # Update the Minecraft and Architectury version requirements in fabric.mod.json
           if [ -f "fabric/src/main/resources/fabric.mod.json" ]; then
+            # Update minecraft dependency
             sed -i 's/"minecraft": "~[^"]*"/"minecraft": "~${{ matrix.minecraft_version }}"/' fabric/src/main/resources/fabric.mod.json
             echo "Updated fabric.mod.json minecraft dependency to ~${{ matrix.minecraft_version }}"
+            
+            # Get architectury version from gradle.properties and update fabric.mod.json
+            ARCH_VERSION=$(grep "^architectury_api_version=" gradle.properties | cut -d'=' -f2)
+            if [ -n "$ARCH_VERSION" ]; then
+              sed -i "s/\"architectury\": \"[^\"]*\"/\"architectury\": \">=$ARCH_VERSION\"/" fabric/src/main/resources/fabric.mod.json
+              echo "Updated fabric.mod.json architectury dependency to >=$ARCH_VERSION"
+            fi
           fi
           
       - name: Commit and push changes

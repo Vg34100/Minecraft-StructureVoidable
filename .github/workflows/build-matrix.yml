@@ -2,7 +2,7 @@ name: Build Matrix Test
 
 on:
   push:
-    branches: [master, 'auto/mc-*']
+    branches: [master, 'auto/mc-*', 'auto/**']
   pull_request:
     branches: [master]
   workflow_dispatch:
@@ -14,14 +14,11 @@ jobs:
       fail-fast: false  # Don't cancel other jobs if one fails
       matrix:
         include:
-          - name: "MC 1.21.5 (Default)"
-            mcVersion: ""
+          - name: "MC 1.21.5"
             branch: "master"
           - name: "MC 1.21.4"
-            mcVersion: "1214"
             branch: "auto/mc-1.21.4"
           - name: "MC 1.21.3"
-            mcVersion: "1213"
             branch: "auto/mc-1.21.3"
     
     name: ${{ matrix.name }}
@@ -32,15 +29,18 @@ jobs:
         with:
           fetch-depth: 0
           
-      # Try to checkout the specific branch if it exists
+      # Checkout the specific branch (or skip if it doesn't exist)
       - name: Checkout target branch
         run: |
-          if [ "${{ matrix.branch }}" != "master" ]; then
+          if [ "${{ matrix.branch }}" == "master" ]; then
+            echo "Already on master branch"
+          else
             if git ls-remote --heads origin ${{ matrix.branch }} | grep -q ${{ matrix.branch }}; then
               git checkout ${{ matrix.branch }}
               echo "Checked out existing branch: ${{ matrix.branch }}"
             else
-              echo "Branch ${{ matrix.branch }} does not exist, staying on current branch"
+              echo "Branch ${{ matrix.branch }} does not exist, skipping this build"
+              exit 0
             fi
           fi
         
@@ -58,13 +58,8 @@ jobs:
         
       - name: Build with Gradle
         run: |
-          if [ -n "${{ matrix.mcVersion }}" ]; then
-            echo "Building with MC version parameter: ${{ matrix.mcVersion }}"
-            ./gradlew build -PmcVersion=${{ matrix.mcVersion }} --no-daemon --stacktrace
-          else
-            echo "Building with default MC version"
-            ./gradlew build --no-daemon --stacktrace
-          fi
+          echo "Building branch: ${{ matrix.branch }}"
+          ./gradlew build --no-daemon --stacktrace
           
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
